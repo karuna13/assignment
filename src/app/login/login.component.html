@@ -1,0 +1,60 @@
+﻿<div class="container">
+    <header class="header clearfix">
+        <h3 class="text-muted"><a href="/"><img src="assets/img/logo.png" alt="Tango Logo" title="Tango" /></a></h3>
+    </header>
+    <section class="action login">
+    <div class="headline">
+        <h1>State thy name and ye shall pass</h1>
+        <h5>Not a member yet?  <a [routerLink]="['/register']" class="btn btn-link">Register</a> now — it's fun and easy!</h5>
+    </div>
+    <div class="login clearfix">
+            <div class="row">
+                    <div class="col-sm-5">
+    <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+            <input type="text" class="form-control" name="username" min="3" placeholder="Username" [(ngModel)]="model.username" #username="ngModel" required />
+            <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+           
+                <input type="password" class="form-control" name="password" placeholder="Password"  [(ngModel)]="model.password" #password="ngModel" required />
+                 <a href="#" class="forgot" title="">Forgot Password?</a>
+         
+            <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+        </div>
+        <div class="form-group">
+               
+                            <input type="checkbox"> Remember me
+                        
+                            <button [disabled]="loading" class="btn btn-primary">Login</button>
+                    
+        </div>
+    </form>
+    </div>
+    <div class="col-sm-5">
+            <div class="clearfix">
+                <div class="social-login relative">
+                    <div class="or">Or</div>
+                    <button class="facebook"><i class="ic-facebook">&nbsp;</i><span class="text">Login with Facebook</span></button>
+                    <button class="twitter"><i class="ic-twitter">&nbsp;</i><span class="text">Login with Twitter</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </section>
+    <section>
+            <div class="card text-center">
+                <div class="headline">
+                    <h1>Learn more!</h1>
+                    <h5>Check out our demos and quick guides to our app </h5>
+                </div>
+                <div class="embed-responsive embed-responsive-4by3">
+                    <div class="embed-responsive-item" onclick="this.nextElementSibling.style.display='block';this.nextElementSibling.src='https://www.youtube.com/embed/DBXH9jJRaDk?autoplay=1&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0'; this.style.display='none'">
+                        <img src="assets/img/play.png" style="cursor:pointer;" />
+                    </div>
+                    <iframe style="display: none;" class="embed-responsive-item" src=""></iframe>
+                </div>
+            </div>
+        </section>
+</div>
